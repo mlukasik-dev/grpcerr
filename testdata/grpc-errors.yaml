@@ -1,0 +1,34 @@
+definitions:
+  - name: UNKNOWN_INTERNAL
+    title: "Ups. Sorry for the inconvenience"
+    message: "Some error happened to our services, we're trying to fix it. (reload page and so on...)"
+
+  - name: RESOURCE_NOT_FOUND
+    title: "Not found"
+
+  - name: INVALID_PARAM
+    title: "Bad request"
+
+  - name: UNAUTHENTICATED
+    title: ""
+
+uses:
+  Authorize:
+    - name: UNKNOWN_INTERNAL
+
+    - name: UNAUTHENTICATED
+      message: ""
+
+    - name: PERMISSION_DENIED
+      message: ""
+
+  GetUser:
+    - name: UNKNOWN_INTERNAL
+
+    - name: INVALID_PARAM
+      message:
+
+    - name: RESOURCE_NOT_FOUND
+      message: "User with {{ .Email }} was not found"
+      options:
+        template: true
